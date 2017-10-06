@@ -2,9 +2,6 @@
 
 export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
-setxkbmap -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
-
 # ::::::::: Colors :::::::::::::::::::::::::::
 {
   [ -f ~/.bash_colors.sh ] && . ~/.bash_colors.sh

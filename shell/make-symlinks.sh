@@ -7,6 +7,7 @@ repo=$DOTFILES
 shell_files=(
   "$repo/shell/bash_aliases"
   "$repo/shell/bash_colors.sh"
+  "$repo/shell/bash_functions"
   "$repo/shell/bashrc"
 )
 
