@@ -1,0 +1,72 @@
+set keyseq-timeout 250
+
+set colored-completion-prefix on
+set completion-ignore-case on
+set echo-control-characters off
+set enable-bracketed-paste on
+set mark-symlinked-directories on
+set skip-completed-text on
+
+# Search history for the characters preceding the cursor
+control-p: previous-history
+control-n: next-history
+# "\033[A": history-search-backward
+# "\033[B": history-search-forward
+"\033p": history-search-backward
+"\033n": history-search-forward
+
+# # Shift-Space
+# "\033[32;2u": " "
+# # Ctrl-Shift-Space
+# "\033[32;6u": " "
+
+# # Alt-Tab
+# "\033[9;3u": "\t"
+# # Alt-Shift-Tab
+# "\033[1;3Z": "\t"
+
+# # Ctrl-,
+# "\033[44;5u": ","
+# # Ctrl-.
+# "\033[46;5u": "."
+
+# # Shift-Enter
+# "\033[13;2u": "\n"
+# # Ctrl-Enter
+# "\033[13;5u": "\n"
+
+# # Shift-Up
+# "\033[1;2A": beginning-of-history
+# # Ctrl-Up
+# "\033[1;5A": beginning-of-history
+# # Ctrl-Shift-Up
+# "\033[1;6A": beginning-of-history
+# # Alt-Up
+# "\x1b\x1b\x5b\x41": beginning-of-history
+
+# # Shift-Down
+# "\033[1;2B": end-of-history
+# # Ctrl-Down
+# "\033[1;5B": end-of-history
+# # Ctrl-Shift-Down
+# "\033[1;6B": end-of-history
+# # Alt-Down
+# "\x1b\x1b\x5b\x42": end-of-history
+
+# # Shift-Left
+# "\033[1;2D": backward-word
+# # Ctrl-Left
+# "\033[1;5D": backward-word
+# # Ctrl-Shift-Left
+# "\033[1;6D": beginning-of-line
+# # Alt-Left
+# "\033B": backward-word
+
+# # Shift-Right
+# "\033[1;2C": forward-word
+# # Ctrl-Right
+# "\033[1;5C": forward-word
+# # Ctrl-Shift-Right
+# "\033[1;6C": end-of-line
+# # Alt-Right
+# "\033[1;5P": forward-word
