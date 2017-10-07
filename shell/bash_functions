@@ -1,6 +1,7 @@
 #!/bin/sh
 
 CC() {
-  setxkbmap -option 'caps:ctrl_modifier'
+  setxkbmap -option 'caps:none,shift:both_capslock,caps:ctrl_modifier'
+  pkill -f "xcape -e Caps_Lock Escape"
   xcape -e 'Caps_Lock=Escape'
 }
