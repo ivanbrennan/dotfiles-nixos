@@ -2,6 +2,12 @@
 
 CC() {
   setxkbmap -option 'caps:none,shift:both_capslock,caps:ctrl_modifier'
-  pkill -f "xcape -e Caps_Lock Escape"
-  xcape -e 'Caps_Lock=Escape'
+  __caps_already_xcaped || xcape -e 'Caps_Lock=Escape'
+}
+
+__caps_already_xcaped() {
+  pgrep --full \
+        --exact \
+        "xcape -e Caps_Lock Escape" \
+        &>/dev/null
 }
