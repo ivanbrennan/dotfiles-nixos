@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+PATH="/usr/local/bin:$PATH"
+dir="`git rev-parse --git-dir`"   # repo's git dir
+trap 'rm -f "$dir/$$.etags"' EXIT # delete temp file upon EXIT
+
+# pipe project's files to ctags, use etags format
+# use paths relative to tagfile
+# write to temp file .git/<pid>.etags
+git ls-files | \
+  ctags -L - -e -o "$dir/$$.etags" --tag-relative=yes
+
+mv "$dir/$$.etags" "$dir/etags"  # tagfile: .git/etags
+

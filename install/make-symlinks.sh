@@ -11,16 +11,25 @@ shell_files=(
   "$repo/shell/bashrc"
 )
 
+config_files=(
+  "$repo/git"
+)
+
 main() {
+  make_home_symlinks
+  make_config_symlinks
+}
+
+make_home_symlinks() {
   for src in "${shell_files[@]}"; do
     link="$HOME/.$(basename "$src")"
+    make_symlink "$src" "$link"
+  done
+}
 
-    if already_exists "$link"; then
-      backup="${link}-backup-$(date +%s)"
-      echo "$link already exists. Backing up to $backup"
-      mv -i "$link" "$backup"
-    fi
-
+make_config_symlinks() {
+  for src in "${config_files[@]}"; do
+    link="$HOME/.config/$(basename "$src")"
     make_symlink "$src" "$link"
   done
 }
@@ -32,6 +41,13 @@ already_exists() {
 
 make_symlink() {
   local src=$1 link=$2
+
+  if already_exists "$link"; then
+    backup="${link}-backup-$(date +%s)"
+    echo "$link already exists. Backing up to $backup"
+    mv -i "$link" "$backup"
+  fi
+
   ln -svnf "$src" "$link" | grep -Fe '->'
 }
 

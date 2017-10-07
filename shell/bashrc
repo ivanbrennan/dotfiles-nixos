@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
+export GIT_EDITOR=vim
 
 # ::::::::: Colors :::::::::::::::::::::::::::
 {

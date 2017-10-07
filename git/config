@@ -1,0 +1,62 @@
+[user]
+	name = ivanbrennan
+	email = ivan.brennan@gmail.com
+[include]
+	path = ~/.gitconfig.local
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = less -FRX
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	dap = add -p
+	df = diff
+	ca = diff --cached
+	o = log -1 --pretty=fuller
+	lg = "!. ~/.githelpers && pretty_git_log"
+	lp = log -p
+	who = shortlog -s --
+	pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+	ff = pull --ff-only
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+	ctags = !.git/hooks/ctags
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[diff "elisp"]
+  xfuncname = ^[[:space:]]*(\\(.+)$
+[commit]
+	verbose = true
+[push]
+	default = current
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = opendiff
+[advice]
+	statusHints = false
+[init]
+	templatedir = ~/.config/git/templates
+[status]
+	submodulesummary = true
+	showuntrackedfiles = all
+[diff]
+	submodule = log
+[fetch]
+	recurseSubmodules = on-demand
