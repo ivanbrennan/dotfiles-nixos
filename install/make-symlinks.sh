@@ -11,6 +11,16 @@ shell_files=(
   "$repo/shell/bashrc"
 )
 
+term_files=(
+  "$repo/tmux/tmux.conf"
+  "$repo/tmux/tmux-keys.conf"
+)
+
+home_files=(
+  "${shell_files[@]}"
+  "${term_files[@]}"
+)
+
 config_files=(
   "$repo/git"
 )
@@ -21,7 +31,7 @@ main() {
 }
 
 make_home_symlinks() {
-  for src in "${shell_files[@]}"; do
+  for src in "${home_files[@]}"; do
     link="$HOME/.$(basename "$src")"
     make_symlink "$src" "$link"
   done
