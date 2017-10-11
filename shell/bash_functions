@@ -1,7 +1,12 @@
 #!/bin/sh
 
 CC() {
-  setxkbmap -option 'caps:none,shift:both_capslock,caps:ctrl_modifier'
+  __set_caps_ctrl_xcape
+  __set_key_theme "Emacs"
+}
+
+__set_caps_ctrl_xcape() {
+  setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock'
   __caps_already_xcaped || xcape -e 'Caps_Lock=Escape'
 }
 
@@ -10,18 +15,6 @@ __caps_already_xcaped() {
         --exact \
         "xcape -e Caps_Lock Escape" \
         &>/dev/null
-}
-
-EE() {
-  if [[ $(__get_key_theme) =~ Default ]]; then
-    __set_key_theme "Emacs"
-  else
-    __set_key_theme "Default"
-  fi
-}
-
-__get_key_theme() {
-  gsettings get org.gnome.desktop.interface gtk-key-theme
 }
 
 __set_key_theme() {
