@@ -6,6 +6,8 @@ export GIT_EDITOR=vim
 # ::::::::: Colors :::::::::::::::::::::::::::
 {
   [ -f ~/.bash_colors.sh ] && . ~/.bash_colors.sh
+
+  export THEME=light
 }
 
 # ::::::::: Prompt :::::::::::::::::::::::::::
