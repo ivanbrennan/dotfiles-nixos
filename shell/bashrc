@@ -3,6 +3,12 @@
 export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 export GIT_EDITOR=vim
 
+# ::::::::: Paths ::::::::::::::::::::::::::::
+{
+  # DON'T EXPORT CDPATH, as it can screw up scripts.
+  CDPATH=".:~/Development:~/Development/resources:~"
+}
+
 # ::::::::: Colors :::::::::::::::::::::::::::
 {
   [ -f ~/.bash_colors.sh ] && . ~/.bash_colors.sh
@@ -72,4 +78,24 @@ export GIT_EDITOR=vim
   for file in "${files[@]}"; do
     [ -r "$file" ] && . "$file"
   done
+}
+
+# ::::::::: Shell Options ::::::::::::::::::::
+{
+  shopt -s histappend cmdhist lithist
+
+  # Display all 2856 possibilities? Um, no thanks
+  shopt -s no_empty_cmd_completion
+
+  # If shell is interactive, disable START/STOP output control.
+  # This allows Ctrl-S to trigger i-search.
+  if [[ $- = *i* ]]; then
+    # -ixon : Disable START/STOP output control.
+    # This allows Ctrl-S to trigger i-search.
+    # dsusp undef : Turn off "delayed suspend".
+    # This allows C-Y to work in GHCi.
+    stty -ixon dsusp undef
+  fi
+
+  unset -v MAILCHECK
 }
