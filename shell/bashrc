@@ -1,12 +1,24 @@
 #!/bin/sh
 
 export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
-export GIT_EDITOR=vim
 
 # ::::::::: Paths ::::::::::::::::::::::::::::
 {
   # DON'T EXPORT CDPATH, as it can screw up scripts.
   CDPATH=".:~/Development:~/Development/resources:~"
+}
+
+# ::::::::: One True Editor(s) :::::::::::::::
+{
+  export VISUAL=vim
+  export GIT_EDITOR=vim
+  export SVN_EDITOR=vim
+
+  # Emacs
+  export EMAIL="ivan.brennan@gmail.com"
+
+  # Don't bother editing Git merge commit-messages
+  export GIT_MERGE_AUTOEDIT="no"
 }
 
 # ::::::::: Colors :::::::::::::::::::::::::::
