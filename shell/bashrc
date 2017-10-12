@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
@@ -6,6 +6,22 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 {
   # DON'T EXPORT CDPATH, as it can screw up scripts.
   CDPATH=".:~/Development:~/Development/resources:~"
+}
+
+# ::::::::: Bash Completion ::::::::::::::::::
+{
+  # Display all 2856 possibilities? Um, no thanks
+  shopt -s no_empty_cmd_completion
+
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+
+    # this should not be necessary, why isn't the completion autoloader working?
+    . /usr/share/bash-completion/completions/git
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+
 }
 
 # ::::::::: One True Editor(s) :::::::::::::::
@@ -95,9 +111,6 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 # ::::::::: Shell Options ::::::::::::::::::::
 {
   shopt -s histappend cmdhist lithist
-
-  # Display all 2856 possibilities? Um, no thanks
-  shopt -s no_empty_cmd_completion
 
   # If shell is interactive, disable START/STOP output control.
   # This allows Ctrl-S to trigger i-search.
