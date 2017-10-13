@@ -134,3 +134,7 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
 # Kubectl shell completion
 [ -r ~/.kube/completion.bash.inc ] && . ~/.kube/completion.bash.inc
+
+
+# minikube shell completion
+[ -r ~/.minikube/completion.bash.inc ] && . ~/.minikube/completion.bash.inc
