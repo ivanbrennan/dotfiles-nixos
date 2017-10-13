@@ -6,6 +6,13 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 {
   # DON'T EXPORT CDPATH, as it can screw up scripts.
   CDPATH=".:~/Development:~/Development/resources:~"
+
+  # PATH
+  {
+    export LOCAL_PATH="~/.local/bin"
+
+    export PATH="$LOCAL_PATH:$PATH"
+  }
 }
 
 # ::::::::: Bash Completion ::::::::::::::::::
