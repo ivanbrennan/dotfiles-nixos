@@ -123,5 +123,14 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
   unset -v MAILCHECK
 }
 
+# ::::::::: History ::::::::::::::::::::::::::
+{
+  export HISTTIMEFORMAT='%F %T '
+  export HISTCONTROL=erasedups:ignorespace
+  export HISTSIZE=10000
+  export HISTFILESIZE=20000
+  export HISTIGNORE='jobs:[fb]g:history:gst:tls'
+}
+
 # Kubectl shell completion
 [ -r ~/.kube/completion.bash.inc ] && . ~/.kube/completion.bash.inc
