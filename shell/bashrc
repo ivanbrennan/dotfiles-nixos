@@ -122,3 +122,6 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
   unset -v MAILCHECK
 }
+
+# Kubectl shell completion
+[ -r ~/.kube/completion.bash.inc ] && . ~/.kube/completion.bash.inc
