@@ -1,5 +1,10 @@
 #!/bin/sh
 
+II() {
+  CC
+  __set_drag_lock
+}
+
 CC() {
   __set_caps_ctrl_xcape
   __set_key_theme "Emacs"
@@ -19,4 +24,11 @@ __caps_already_xcaped() {
 
 __set_key_theme() {
   gsettings set org.gnome.desktop.interface gtk-key-theme $1
+}
+
+__set_drag_lock() {
+  dev_id=$( xinput --list | grep 'TouchPad' | grep -oP '(?<=\sid=)\d+(?=\s)' )
+  props=$( xinput list-props ${dev_id} )
+  prop_id=$( echo "$props" | grep -oP '(?<=Tapping Drag Lock Enabled \()\d+' )
+  xinput set-prop $dev_id $prop_id 1
 }
