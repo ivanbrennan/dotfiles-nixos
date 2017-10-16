@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This file is sourced when Bash is run as an interactive login shell, which is
+# not to be confused with logging into a graphical shell. Graphical logins will
+# most likely source ~/.profile.
+
+[ -r ~/.profile ] && . ~/.profile # login initialization not specific to Bash
+[ -r ~/.bashrc  ] && . ~/.bashrc  # interactive, Bash-specific customizations

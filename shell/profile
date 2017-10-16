@@ -1,5 +1,26 @@
-if [ -n "$BASH_VERSION" ]; then
-  [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
-fi
+# This file is sourced upon login (e.g. logging into a graphical shell).
+# It should not contain any Bash-specific code.
+
+export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
+
+# ::::::::: Paths ::::::::::::::::::::::::::::
+{
+  export LOCAL_PATH="~/.local/bin"
+
+  export PATH="$LOCAL_PATH:$PATH"
+}
+
+# ::::::::: One True Editor(s) :::::::::::::::
+{
+  export VISUAL=vim
+  export GIT_EDITOR=vim
+  export SVN_EDITOR=vim
+
+  # Emacs
+  export EMAIL="ivan.brennan@gmail.com"
+
+  # Don't bother editing Git merge commit-messages
+  export GIT_MERGE_AUTOEDIT="no"
+}
 
 if [ -e /home/ivan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ivan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

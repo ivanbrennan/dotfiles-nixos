@@ -1,52 +1,17 @@
 #!/bin/bash
 
-export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
+# This file is sourced when Bash is run in an interactive shell. It holds
+# functions, aliases, etc. that are specific to interactive shell usage.
 
-# ::::::::: Paths ::::::::::::::::::::::::::::
+# ::::::::: CDPATH :::::::::::::::::::::::::::
 {
-  # DON'T EXPORT CDPATH, as it can screw up scripts.
+  # DON'T EXPORT CDPATH, it can screw up scripts.
   CDPATH=".:~/Development:~/Development/resources:~"
-
-  # PATH
-  {
-    export LOCAL_PATH="~/.local/bin"
-
-    export PATH="$LOCAL_PATH:$PATH"
-  }
-}
-
-# ::::::::: Bash Completion ::::::::::::::::::
-{
-  # Display all 2856 possibilities? Um, no thanks
-  shopt -s no_empty_cmd_completion
-
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-
-    # this should not be necessary, why isn't the completion autoloader working?
-    . /usr/share/bash-completion/completions/git
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-
-}
-
-# ::::::::: One True Editor(s) :::::::::::::::
-{
-  export VISUAL=vim
-  export GIT_EDITOR=vim
-  export SVN_EDITOR=vim
-
-  # Emacs
-  export EMAIL="ivan.brennan@gmail.com"
-
-  # Don't bother editing Git merge commit-messages
-  export GIT_MERGE_AUTOEDIT="no"
 }
 
 # ::::::::: Colors :::::::::::::::::::::::::::
 {
-  [ -f ~/.bash_colors.sh ] && . ~/.bash_colors.sh
+  [ -f ~/.ansi_colors ] && . ~/.ansi_colors
 
   export THEME=light
 }
@@ -139,9 +104,22 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
   export HISTIGNORE='jobs:[fb]g:history:gst:tls'
 }
 
+# ::::::::: Completion :::::::::::::::::::::::
+
+# Bash completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+  # this should not be necessary, why isn't the completion autoloader working?
+  . /usr/share/bash-completion/completions/git
+elif [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# Display all 2856 possibilities? Um, no thanks
+shopt -s no_empty_cmd_completion
+
 # Kubectl shell completion
 [ -r ~/.kube/completion.bash.inc ] && . ~/.kube/completion.bash.inc
-
 
 # minikube shell completion
 [ -r ~/.minikube/completion.bash.inc ] && . ~/.minikube/completion.bash.inc
