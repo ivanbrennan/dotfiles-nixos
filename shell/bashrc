@@ -97,11 +97,11 @@
 
 # ::::::::: History ::::::::::::::::::::::::::
 {
-  export HISTTIMEFORMAT='%F %T '
-  export HISTCONTROL=erasedups:ignorespace
-  export HISTSIZE=10000
-  export HISTFILESIZE=20000
-  export HISTIGNORE='jobs:[fb]g:history:gst:tls'
+  HISTTIMEFORMAT='%F %T '
+  HISTCONTROL=erasedups:ignorespace
+  HISTSIZE=10000
+  HISTFILESIZE=20000
+  HISTIGNORE='jobs:[fb]g:history:gst:tls'
 }
 
 # ::::::::: Completion :::::::::::::::::::::::
