@@ -1,34 +1,84 @@
 #!/bin/sh
 
-II() {
-  CC
-  __set_drag_lock
+# ::::::::: Initialization :::::::::::::::::::
+# This is a temporary hack, providing triggers to set up my prefered keyboard
+# behavior. These should be moved into the appropriate initialization files.
+{
+  II() {
+    CC
+    __set_drag_lock
+  }
+
+  CC() {
+    __set_caps_ctrl_xcape
+    __set_key_theme "Emacs"
+  }
+
+  __set_caps_ctrl_xcape() {
+    setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock'
+    __caps_already_xcaped || xcape -e 'Caps_Lock=Escape'
+  }
+
+  __caps_already_xcaped() {
+    pgrep --full \
+      --exact \
+      "xcape -e Caps_Lock Escape" \
+      &>/dev/null
+  }
+
+  __set_key_theme() {
+    gsettings set org.gnome.desktop.interface gtk-key-theme $1
+  }
+
+  __set_drag_lock() {
+    dev_id=$( xinput --list | grep 'TouchPad' | grep -oP '(?<=\sid=)\d+(?=\s)' )
+    props=$( xinput list-props ${dev_id} )
+    prop_id=$( echo "$props" | grep -oP '(?<=Tapping Drag Lock Enabled \()\d+' )
+      xinput set-prop $dev_id $prop_id 1
+  }
 }
 
-CC() {
-  __set_caps_ctrl_xcape
-  __set_key_theme "Emacs"
+# ::::::::: Hints ::::::::::::::::::::::::::::
+{
+  showpath() {
+    col_bold="\033[30;01m"
+    col_reset="\033[39;49;00m"
+
+    printf '%bPATH%b:\n%s\n' "$col_bold" "$col_reset" "${PATH//:/$'\n'}"
+  }
 }
 
-__set_caps_ctrl_xcape() {
-  setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock'
-  __caps_already_xcaped || xcape -e 'Caps_Lock=Escape'
-}
+# ::::::::: Documentation ::::::::::::::::::::
+{
+  # jump to Bash builtin documentation
+  man () {
+    case "$(type -t "$1")" in
+      builtin)
+        local pattern="^ *$1"
 
-__caps_already_xcaped() {
-  pgrep --full \
-        --exact \
-        "xcape -e Caps_Lock Escape" \
-        &>/dev/null
-}
+        if bashdoc_match "$pattern \+[-[]"; then
+          command man bash | less --pattern="$pattern +[-[]"
+        elif bashdoc_match "$pattern\b"; then
+          command man bash | less --pattern="$pattern[[:>:]]"
+        else
+          command man bash
+        fi
+        ;;
+      keyword)
+        command man bash | less --hilite-search --pattern='^SHELL GRAMMAR$'
+        ;;
+      *)
+        command man "$@"
+        ;;
+    esac
+  }
 
-__set_key_theme() {
-  gsettings set org.gnome.desktop.interface gtk-key-theme $1
-}
+  bashdoc_match() {
+    command man bash | col -b | grep -l "$1" > /dev/null
+  }
 
-__set_drag_lock() {
-  dev_id=$( xinput --list | grep 'TouchPad' | grep -oP '(?<=\sid=)\d+(?=\s)' )
-  props=$( xinput list-props ${dev_id} )
-  prop_id=$( echo "$props" | grep -oP '(?<=Tapping Drag Lock Enabled \()\d+' )
-  xinput set-prop $dev_id $prop_id 1
+  # dictionary
+  fdoc() {
+    curl dict://dict.org/d:$1:foldoc
+  }
 }
