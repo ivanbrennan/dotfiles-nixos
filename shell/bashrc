@@ -123,3 +123,8 @@ shopt -s no_empty_cmd_completion
 
 # minikube shell completion
 [ -r ~/.minikube/completion.bash.inc ] && . ~/.minikube/completion.bash.inc
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
