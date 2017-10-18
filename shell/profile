@@ -18,6 +18,7 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
   # Emacs
   export EMAIL="ivan.brennan@gmail.com"
+  export ASPELL_CONF="data-dir $HOME/.nix-profile/lib/aspell/"
 
   # Don't bother editing Git merge commit-messages
   export GIT_MERGE_AUTOEDIT="no"
