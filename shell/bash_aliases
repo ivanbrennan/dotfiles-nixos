@@ -14,3 +14,10 @@ alias gpc="git log origin/master.. -- | wc -l"
 alias t='tmux'
 alias tls='tmux ls'
 complete -F _tmux t
+
+# ::::::::: Ls :::::::::::::::::::::::::::::::
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+
+alias grep='grep --color=auto'
