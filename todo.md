@@ -29,3 +29,29 @@ Read `/etc/gdm3/Xsession`
 > * In `.bashrc`, put bash interactive settings such as aliases, functions, completion, key bindings (that aren't in `.inputrc`), …
 >
 > See also [Difference between Login Shell and Non-Login Shell?](https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856) and [Alternative to `.bashrc`](https://unix.stackexchange.com/questions/3052/alternative-to-bashrc/3085#3085).
+
+## Wayland vs X11, what's this about? Which am I using? What are the repurcussions?
+To check which you're using, first run `loginctl` and find the `SESSION` number associated with your use.
+Then run `loginctl show-session <number> -p Type`. For example, mine shows:
+```
+$ loginctl
+   SESSION        UID USER             SEAT             TTY
+         2       1000 ivan             seat0            /dev/tty2
+        c1        120 gdm              seat0            /dev/tty1
+
+2 sessions listed.
+$ loginctl show-session 2 -p Type
+Type=x11
+```
+So, I'm running X11, not wayland. Why is this the case? Well, the faq page for ubuntugnome says:
+> Wayland support has been available since 15.04, however its not enabled by default just yet since it still needs some work. If you want to try it out install the gnome-session-wayland package.
+
+This may be specific to Ubuntu-gnome, as the ArchWiki, in describing Gnome, says:
+> The default display is Wayland instead of Xorg
+
+On the other hand, checking on the ThinkPadX220 running Gnome on NixOS, it also reports x11 rather than Wayland. Of course, that's also an old machine, so maybe NixOS chose to go with Xorg because of the hardware?
+
+See also:
+- https://ubuntugnome.org/documentation/faq/
+- https://askubuntu.com/questions/944073/try-out-wayland-on-ubuntu-gnome-17-04
+- https://wiki.archlinux.org/index.php/GNOME
