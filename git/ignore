@@ -60,3 +60,6 @@ Thumbs.db
 # Search Tools
 ##############
 .agignore
+
+# tmp directory
+/tmp/
