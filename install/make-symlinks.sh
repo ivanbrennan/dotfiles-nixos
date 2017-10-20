@@ -29,6 +29,7 @@ config_files=(
 main() {
   make_home_symlinks
   make_config_symlinks
+  make_x11_symlinks
 }
 
 make_home_symlinks() {
@@ -42,6 +43,12 @@ make_config_symlinks() {
   for src in "${config_files[@]}"; do
     link="$HOME/.config/$(basename "$src")"
     make_symlink "$src" "$link"
+  done
+}
+
+make_x11_symlinks() {
+  for x in xinitrc xsession xprofile; do
+    make_symlink "$repo/X11/xinitrc" "$HOME/.$x"
   done
 }
 

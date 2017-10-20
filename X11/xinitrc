@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# look into xmodmap
+
+# configure caps lock behavior
+setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock' &
+xcape -e 'Caps_Lock=Escape' &
+
+# use some emacs keybindings
+gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" &
+
+# activate drag lock
+(
+  dev_id=$( xinput --list | grep 'TouchPad' | grep -oP '(?<=\sid=)\d+(?=\s)' )
+  props=$( xinput list-props ${dev_id} )
+  prop_id=$( echo "$props" | grep -oP '(?<=Tapping Drag Lock Enabled \()\d+' )
+  xinput set-prop $dev_id $prop_id 1
+) &
+
+exec gnome-session
