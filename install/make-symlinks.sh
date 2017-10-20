@@ -8,6 +8,7 @@ shell_files=(
   "$repo/shell/bash_aliases"
   "$repo/shell/bash_functions"
   "$repo/shell/bashrc"
+  "$repo/shell/inputrc"
   "$repo/shell/profile"
   "$repo/shell/ansi_colors"
 )
