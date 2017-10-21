@@ -55,3 +55,5 @@ See also:
 - https://ubuntugnome.org/documentation/faq/
 - https://askubuntu.com/questions/944073/try-out-wayland-on-ubuntu-gnome-17-04
 - https://wiki.archlinux.org/index.php/GNOME
+
+Get double-shift caps lock working
