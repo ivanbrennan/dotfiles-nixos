@@ -107,13 +107,13 @@
 # ::::::::: Completion :::::::::::::::::::::::
 
 # Bash completion
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
-  # this should not be necessary, why isn't the completion autoloader working?
-  . /usr/share/bash-completion/completions/git
-elif [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
+if [ -r ~/.nix-profile/share/bash-completion/bash_completion ]; then
+  . ~/.nix-profile/share/bash-completion/bash_completion
+  __load_completion tmux # alias (t) doesn't trigger dynamic completion loading
 fi
+for f in ~/.nix-profile/etc/bash_completion.d/*; do
+  [ -r "$f" ] && . "$f"
+done
 
 # Display all 2856 possibilities? Um, no thanks
 shopt -s no_empty_cmd_completion
