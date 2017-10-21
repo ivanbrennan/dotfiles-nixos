@@ -24,4 +24,9 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
   export GIT_MERGE_AUTOEDIT="no"
 }
 
-if [ -e /home/ivan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ivan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# machine-local overrides
+[ -r ~/.profile.local ] && . ~/.profile.local
+
+# setup Nix package manager
+[ -e /home/ivan/.nix-profile/etc/profile.d/nix.sh ] && \
+  . /home/ivan/.nix-profile/etc/profile.d/nix.sh
