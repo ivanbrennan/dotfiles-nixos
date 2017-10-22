@@ -19,6 +19,6 @@ complete -F _tmux t
 alias ls='ls --color=auto'
 alias l='ls -alF'
 alias la='ls -A'
-alias l1='ls -1F'
+alias ll='ls -1F'
 
 alias grep='grep --color=auto'
