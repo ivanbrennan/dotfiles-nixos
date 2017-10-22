@@ -5,7 +5,7 @@ export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
 
 # ::::::::: Paths ::::::::::::::::::::::::::::
 {
-  export LOCAL_PATH="~/.local/bin"
+  export LOCAL_PATH="$HOME/.local/bin"
 
   export PATH="$LOCAL_PATH:$HOME/.rbenv/bin:$PATH"
 }
