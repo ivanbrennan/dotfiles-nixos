@@ -23,6 +23,7 @@ home_files=(
 
 config_files=(
   "$repo/git"
+  "$repo/alacritty"
 )
 
 main() {
