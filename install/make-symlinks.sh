@@ -21,6 +21,7 @@ term_files=(
 home_files=(
   "${shell_files[@]}"
   "${term_files[@]}"
+  "$repo/less"
 )
 
 config_files=(
