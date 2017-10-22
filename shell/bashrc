@@ -124,6 +124,8 @@ shopt -s no_empty_cmd_completion
 # minikube shell completion
 [ -r ~/.minikube/completion.bash.inc ] && . ~/.minikube/completion.bash.inc
 
+eval "$(stack --bash-completion-script stack 2>/dev/null)"
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
