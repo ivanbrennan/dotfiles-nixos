@@ -17,7 +17,8 @@ complete -F _tmux t
 
 # ::::::::: Ls :::::::::::::::::::::::::::::::
 alias ls='ls --color=auto'
-alias ll='ls -alF'
+alias l='ls -alF'
 alias la='ls -A'
+alias l1='ls -1F'
 
 alias grep='grep --color=auto'
