@@ -1,0 +1,2 @@
+historyDuplicates: IgnoreAll
+maxhistorysize: Just 10000

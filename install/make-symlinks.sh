@@ -22,6 +22,7 @@ home_files=(
   "${shell_files[@]}"
   "${term_files[@]}"
   "$repo/less"
+  "$repo/haskeline"
 )
 
 config_files=(
