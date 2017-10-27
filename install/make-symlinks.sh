@@ -30,9 +30,14 @@ config_files=(
   "$repo/nixpkgs"
 )
 
+ghc_files=(
+  "$repo/ghc/ghci.conf"
+)
+
 main() {
   make_home_symlinks
   make_config_symlinks
+  make_ghc_symlinks
   make_x11_symlinks
 }
 
@@ -46,6 +51,13 @@ make_home_symlinks() {
 make_config_symlinks() {
   for src in "${config_files[@]}"; do
     link="$HOME/.config/$(basename "$src")"
+    make_symlink "$src" "$link"
+  done
+}
+
+make_ghc_symlinks() {
+  for src in "${ghc_files[@]}"; do
+    link="$HOME/.ghc/$(basename "$src")"
     make_symlink "$src" "$link"
   done
 }
