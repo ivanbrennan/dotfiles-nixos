@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
+export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+
 # look into xmodmap
 
 # configure caps lock behavior
-setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock' &
 xcape -e 'Caps_Lock=Escape' &
-
-# use some emacs keybindings
-gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" &
+# For reference: Gnome overrides the following. See ./gsettings
+# setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock' &
 
 # activate drag lock
 (
