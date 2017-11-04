@@ -2,5 +2,5 @@
 
 # These changes will take effect immediately, and persest across logins.
 
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier,shift:both_capslock']"
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock']"
 gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" &

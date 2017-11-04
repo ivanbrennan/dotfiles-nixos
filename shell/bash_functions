@@ -1,5 +1,29 @@
 #!/bin/sh
 
+# ::::::::: Keyboard :::::::::::::::::::::::::
+{
+  super_swap() {
+    local old new swap
+
+    old=$(gsettings get org.gnome.desktop.input-sources xkb-options)
+    old="${old/#@as /}" # remove type annotation
+
+    swap="'altwin:swap_alt_win'"
+
+    if grep -q "$swap" <<< "$old"; then
+      new="${old//$swap}" # remove swap
+    else
+      new="${old/%]/, $swap]}" # append swap
+    fi
+
+    new="${new/#[, /[}" # remove leading comma
+    new="${new/%, ]/]}" # remove trailing comma
+    new="${new//, ,/,}" # remove embedded comma
+
+    gsettings set org.gnome.desktop.input-sources xkb-options "$new"
+  }
+}
+
 # ::::::::: Hints ::::::::::::::::::::::::::::
 {
   showpath() {
