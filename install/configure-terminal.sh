@@ -1,5 +1,7 @@
 #!/bin/bash
 
-if [[ ! -e "$HOME/.local/share/konsole/nord.colorscheme" ]]; then
-  $DOTFILES/install/nord-konsole/install.sh
-fi
+for name in marino nord ; do
+  if [[ ! -e "$HOME/.local/share/konsole/$name.colorscheme" ]]; then
+    $DOTFILES/install/$name-konsole/install.sh
+  fi
+done
