@@ -26,6 +26,7 @@ home_files=(
 )
 
 config_files=(
+  "$repo/alacritty"
   "$repo/git"
   "$repo/nixpkgs"
 )

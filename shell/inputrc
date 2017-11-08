@@ -30,10 +30,12 @@ control-n: next-history
 # # Ctrl-.
 # "\033[46;5u": "."
 
-# # Shift-Enter
-# "\033[13;2u": "\n"
-# # Ctrl-Enter
-# "\033[13;5u": "\n"
+# Shift-Enter
+"\033[13;2u": "\n"
+# Ctrl-Enter
+"\033[13;5u": "\n"
+# Alt-Enter
+"\033[13;3u": "\n"
 
 # Shift-Left
 "\033[1;2D": backward-word
