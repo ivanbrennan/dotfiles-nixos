@@ -6,8 +6,6 @@ export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.local/share/flatpak/exports
 
 # configure caps lock behavior
 xcape -e 'Caps_Lock=Escape' &
-# For reference: Gnome overrides the following. See ./gsettings
-# setxkbmap -option 'caps:ctrl_modifier,shift:both_capslock' &
 
 # activate drag lock
 (
