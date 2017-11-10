@@ -22,3 +22,6 @@ alias la='ls -A'
 alias ll='ls -1F'
 
 alias grep='grep --color=auto'
+
+# ::::::::: Job Control ::::::::::::::::::::::
+alias fgg='fg "%-"'
