@@ -53,3 +53,19 @@
     weechat-curses \
     weechat-plugins
 }
+
+# apt-file
+# Use-case: A build fails due to some missing dependency.
+# The failure message calls out the actual file that's missing.
+# apt-file performs a reverse-lookup, identifying the missing
+# package by the name of a file contained within it.
+# E.g.
+#  $ stack build
+#  <command line>: can't load .so/.DLL for: libtinfo.so (libtinfo.so: cannot open shared object file: No such file or directory)
+#  $ sudo apt-file search libtinfo.so
+#  $ sudo apt-get install libtinfo-dev
+#  $ stack build
+{
+  sudo apt-get install apt-file -y
+  sudo apt-file update
+}
