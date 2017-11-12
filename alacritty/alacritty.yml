@@ -282,6 +282,8 @@ key_bindings:
   - { key: Return,   mods: Shift,   chars: "\x1b[13;2u"                  }
   - { key: Return,   mods: Control, chars: "\x1b[13;5u"                  }
   - { key: Return,   mods: Alt,     chars: "\x1b[13;3u"                  }
+  - { key: Comma,    mods: Control, chars: "\x1b[44;5u"                  }
+  - { key: Period,   mods: Control, chars: "\x1b[46;5u"                  }
   - { key: F1,                      chars: "\x1bOP"                      }
   - { key: F2,                      chars: "\x1bOQ"                      }
   - { key: F3,                      chars: "\x1bOR"                      }
