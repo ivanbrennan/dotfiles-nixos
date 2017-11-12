@@ -1,5 +1,23 @@
 #!/bin/sh
 
+# ::::::::: Colorscheme ::::::::::::::::::::::
+{
+  light() {
+    terminal_colorscheme light
+    export THEME=light
+  }
+
+  dark() {
+    terminal_colorscheme dark
+    export THEME=dark
+  }
+
+  terminal_colorscheme() {
+    local theme=$1
+    sed -i "s/\(^colors: \*\).*/\1${theme}/" ~/.config/alacritty/alacritty.yml
+  }
+}
+
 # ::::::::: Keyboard :::::::::::::::::::::::::
 {
   super_swap() {
