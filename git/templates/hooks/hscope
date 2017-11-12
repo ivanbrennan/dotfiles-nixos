@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+PATH="$HOME/.cabal/bin:$PATH"
+
+pushd $(git rev-parse --show-toplevel) >/dev/null
+
+git ls-files | grep '\.l\?hs$' | xargs hscope -b "$@"
+
+popd >/dev/null
