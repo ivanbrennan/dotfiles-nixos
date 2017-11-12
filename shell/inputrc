@@ -16,9 +16,9 @@ control-n: next-history
 "\033n": history-search-forward
 
 # # Shift-Space
-# "\033[32;2u": " "
+"\033[32;2u": " "
 # # Ctrl-Shift-Space
-# "\033[32;6u": " "
+"\033[32;6u": " "
 
 # # Alt-Tab
 # "\033[9;3u": "\t"
