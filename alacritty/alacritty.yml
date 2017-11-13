@@ -175,7 +175,7 @@ color_schemes:
       cyan:    '0x008482'
       white:   '0x878a85'
 
-colors: *light
+colors: *dark
 
 # Visual Bell
 #
