@@ -12,6 +12,11 @@
     export THEME=dark
   }
 
+  nord() {
+    terminal_colorscheme nord
+    export THEME=dark
+  }
+
   terminal_colorscheme() {
     local theme=$1
     sed -i "s/\(^colors: \*\).*/\1${theme}/" ~/.config/alacritty/alacritty.yml
