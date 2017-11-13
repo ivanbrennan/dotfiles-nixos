@@ -1,0 +1,5 @@
+# Add these settings to the repo config by running:
+#  git config --local include.path ../.gitconfig
+#
+[filter "alwaysdark"]
+	clean = sed 's/^colors: \\*.*/colors: *dark/'

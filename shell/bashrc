@@ -13,7 +13,10 @@
 {
   [ -f ~/.ansi_colors ] && . ~/.ansi_colors
 
-  export THEME=dark
+  if [[ -n "${THEME:-x}" ]]; then
+    theme=$(grep -oP '(?<=^colors: \*)[[:word:]]+' ~/.config/alacritty/alacritty.yml)
+    export THEME=${theme:-dark}
+  fi
 }
 
 # ::::::::: Prompt :::::::::::::::::::::::::::
