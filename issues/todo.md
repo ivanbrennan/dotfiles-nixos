@@ -57,3 +57,10 @@ See also:
 - https://wiki.archlinux.org/index.php/GNOME
 
 Get double-shift caps lock working
+
+Why does alacrity fail to start after logging out and back in?
+https://github.com/jwilm/alacritty/issues/830
+https://github.com/tomaka/winit/issues/277
+https://github.com/ibus/ibus/issues/1907
+I'd rather not build a newer version of ibus from source.
+ibus-daemon -xdr --panel disable

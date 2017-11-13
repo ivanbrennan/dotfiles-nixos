@@ -15,4 +15,10 @@ xcape -e 'Caps_Lock=Escape' &
   xinput set-prop $dev_id $prop_id 1
 ) &
 
+# workaround until ibus is upgraded
+#  https://github.com/jwilm/alacritty/issues/830
+#  https://github.com/tomaka/winit/issues/277
+#  https://github.com/ibus/ibus/issues/1907
+ibus-daemon -xdr --panel disable
+
 exec gnome-session

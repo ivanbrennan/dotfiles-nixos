@@ -1,0 +1,8 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+gdm       1442  0.0  0.0 367064  8944 tty1     Sl   21:10   0:00 ibus-daemon --xim --panel disable
+gdm       1445  0.0  0.0 286432  9592 tty1     Sl   21:10   0:00 /usr/lib/ibus/ibus-dconf
+gdm       1448  0.0  0.1 405012 27340 tty1     Sl   21:10   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+gdm       1567  0.0  0.0 210580  9548 tty1     Sl   21:10   0:00 /usr/lib/ibus/ibus-engine-simple
+ivan      2088  0.2  0.0 369364  9296 ?        Sl   21:10   0:00 ibus-daemon --xim --panel disable
+ivan      2094  0.0  0.0 288744 10152 ?        Sl   21:10   0:00 /usr/lib/ibus/ibus-dconf
+ivan      2383  0.0  0.0 212876  8176 ?        Sl   21:10   0:00 /usr/lib/ibus/ibus-engine-simple
