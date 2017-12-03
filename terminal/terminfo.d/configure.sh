@@ -1,4 +1,4 @@
-dir=$HOME/Development/resources/dotfiles-nixos/terminal/terminfo.d
+dir=$HOME/Development/resources/dotfiles/terminal/terminfo.d
 files=( alacritty.info
         tmux.terminfo
         tmux-256color.terminfo

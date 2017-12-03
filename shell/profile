@@ -1,7 +1,7 @@
 # This file is sourced upon login (e.g. logging into a graphical shell).
 # It should not contain any Bash-specific code.
 
-export DOTFILES="$HOME/Development/resources/dotfiles-nixos"
+export DOTFILES="$HOME/Development/resources/dotfiles"
 
 # ::::::::: Paths ::::::::::::::::::::::::::::
 {
