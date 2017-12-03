@@ -4,3 +4,11 @@
 
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock']"
 gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" &
+
+# Original settings
+# cursor-blink : false
+# cursor-blink-time : 1200
+# cursor-blink-timeout : 10
+gsettings set org.gnome.desktop.interface cursor-blink true
+gsettings set org.gnome.desktop.interface cursor-blink-time 900
+gsettings set org.gnome.desktop.interface cursor-blink-timeout 60
