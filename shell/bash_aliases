@@ -21,7 +21,9 @@ alias l='ls -alF'
 alias la='ls -A'
 alias ll='ls -1F'
 
+# ::::::::: Colors :::::::::::::::::::::::::::
 alias grep='grep --color=auto'
+alias diff='diff --color=auto'
 
 # ::::::::: Job Control ::::::::::::::::::::::
 alias fgg='fg "%-"'
