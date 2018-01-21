@@ -1,14 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# These changes will take effect immediately, and persest across logins.
+# These changes take effect immediately and persist across logins.
 
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock']"
-gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" &
+gsettings set org.gnome.desktop.input-sources xkb-options \
+  "['caps:ctrl_modifier', 'shift:both_capslock']"
 
-# Original settings
-# cursor-blink : false
-# cursor-blink-time : 1200
-# cursor-blink-timeout : 10
-gsettings set org.gnome.desktop.interface cursor-blink true
-gsettings set org.gnome.desktop.interface cursor-blink-time 900
-gsettings set org.gnome.desktop.interface cursor-blink-timeout 60
+gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+gsettings set org.gnome.desktop.interface clock-format "12h"
+
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+gsettings set org.gnome.desktop.peripherals.touchpad click-method "fingers"
+
+gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
+gsettings set org.gnome.Terminal.Legacy.Settings theme-variant "dark"
+
+keybindings=Keybindings:/org/gnome/terminal/legacy/keybindings/
+
+gsettings set org.gnome.Terminal.Legacy.${keybindings} copy '<Ctrl><Alt>c'
+gsettings set org.gnome.Terminal.Legacy.${keybindings} paste '<Ctrl><Alt>v'
+
+gsettings set org.gnome.Terminal.Legacy.${keybindings} new-window '<Ctrl><Alt>n'
+gsettings set org.gnome.Terminal.Legacy.${keybindings} new-tab '<Ctrl><Alt>t'
+
+gsettings set org.gnome.Terminal.Legacy.${keybindings} toggle-menubar '<Ctrl><Alt>b'
+gsettings set org.gnome.Terminal.Legacy.${keybindings} full-screen '<Ctrl><Alt>Return'
