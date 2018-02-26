@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 { # prefer libiniput to synaptics drivers
   if dpkg --status libinput-bin libinput10 xserver-xorg-input-libinput >/dev/null 2>&1;
@@ -34,11 +34,19 @@
     neovim \
     python-neovim \
     python3-neovim \
+    rbenv \
+    ruby-build \
     silversearcher-ag \
     tree \
     xcape \
-    xclip
+    xsel
 }
+
+pushd ~/Downloads
+curl -O https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.5-amd64.deb
+sudo dpkg -i slack-desktop-2.8.1-amd64.deb 
+sudo apt-get install -f
+popd
 
 { # weechat
   sudo apt-key adv \
