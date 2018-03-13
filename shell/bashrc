@@ -32,20 +32,26 @@
 
 # ::::::::: Prompt :::::::::::::::::::::::::::
 {
-  build_prompt() {
-    export PS1="╭${CYAN}\w${NORMAL}\$(git_prompt)${NORMAL}\n╰(\u)• "
-    export PS2=" ❯ "
-    export PS4=" + "
-  }
+  if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ]; then
+    GREEN="\033[0;32m"
+    BOLD="\033[1m"
+    NORMAL="\033[0m"
 
-  git_prompt() {
-    if [ -n "$(__gitdir)" ]; then
+    PS1="╭\[${BOLD}\]\w\[${NORMAL}\]\$(_git_ps1_)\[${NORMAL}\]\n╰(\u)• "
+    PS2=" ❯ "
+    PS4=" + "
+
+    _git_ps1_() {
+      local color="${GREEN}"
+
       # __git_ps1 inserts the current git branch where %s is
-      echo " $(__git_ps1 "(${RED}%s${NORMAL})")"
-    fi
-  }
+      echo "$(__git_ps1 " (${color}%s${NORMAL})")"
+    }
 
-  build_prompt
+    if test "$TERM" = "xterm"; then
+      PS1="\[\033]2;\h:\u:\w\007\]${PS1}"
+    fi
+  fi
 }
 
 # ::::::::: Sources ::::::::::::::::::::::::::
