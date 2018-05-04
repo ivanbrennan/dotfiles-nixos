@@ -10,6 +10,7 @@ export DOTFILES="$HOME/Development/resources/dotfiles"
 
 # ::::::::: One True Editor(s) :::::::::::::::
 {
+  export EDITOR=vim
   export VISUAL=vim
   export GIT_EDITOR=vim
   export SVN_EDITOR=vim
