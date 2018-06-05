@@ -12,6 +12,7 @@
         ghc
         git
         gnome-shell-pomodoro
+        gnupg
         graphviz
         haskellPackages.ghc-mod
         haskellPackages.hscope
