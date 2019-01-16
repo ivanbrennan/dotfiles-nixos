@@ -14,9 +14,7 @@
         gnome-shell-pomodoro
         gnupg
         graphviz
-        haskellPackages.ghc-mod
         haskellPackages.hscope
-        kdeApplications.konsole
         lua
         moreutils
         openssh
@@ -28,7 +26,6 @@
         tmux
         universal-ctags
         util-linux-minimal
-        vimHugeX
         vlc
       ];
     };
