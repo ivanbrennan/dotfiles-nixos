@@ -25,7 +25,7 @@
 
 # ::::::::: Keyboard :::::::::::::::::::::::::
 {
-  super_swap() {
+  superswap() {
     local old new swap
 
     old=$(gsettings get org.gnome.desktop.input-sources xkb-options)
