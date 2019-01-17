@@ -6,6 +6,7 @@
     ivanUbuntuPkgs = pkgs.buildEnv {
       name = "ivan-ubuntu-pkgs";
       paths = with pkgs; [
+        _1password
         aspell
         aspell-dict-en
         bash-completion
