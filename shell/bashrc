@@ -116,6 +116,7 @@ eval "$(stack --bash-completion-script stack 2>/dev/null)"
 LPASS_AGENT_TIMEOUT=$(( 12 * 60 * 60 ))
 
 FZF_DEFAULT_COMMAND="fd -t file -E GTAGS -E GRTAGS -E GPATH"
+export FZF_DEFAULT_OPTS
 FZF_DEFAULT_OPTS="\
     --prompt='• '
     --history=$HOME/.fzf-history
