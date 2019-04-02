@@ -1,7 +1,0 @@
-#!/bin/sh
-
-set -e
-PATH="$HOME/.cabal/bin:$PATH"
-
-git ls-files '*.hs' '*.lhs' | \
-  xargs hscope --build "$@"
