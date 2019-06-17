@@ -15,6 +15,7 @@
 	df = diff
 	ca = diff --cached
 	o = log -1 --pretty=fuller
+	graph = log --graph --pretty='%C(cyan dim italic)%h%Creset %s %C(white dim)(%an, %cr)%Creset%C(yellow)%d%Creset'
 	lg = "!. ~/.githelpers && pretty_git_log"
 	lp = log -p
 	who = shortlog -s --
