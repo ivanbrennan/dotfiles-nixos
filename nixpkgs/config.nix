@@ -17,7 +17,7 @@
         gnome-shell-pomodoro
         gnupg
         graphviz
-        haskellPackages.hscope
+        haskellPackages.hasktags
         lua
         moreutils
         openssh

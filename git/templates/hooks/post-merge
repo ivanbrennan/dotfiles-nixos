@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -e stack.yaml ]; then
-  .git/hooks/hscope >/dev/null 2>&1 &
+  .git/hooks/hasktags >/dev/null 2>&1 &
 else
   .git/hooks/ctags >/dev/null 2>&1 &
   .git/hooks/gtags >/dev/null 2>&1 &
